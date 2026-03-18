@@ -80,7 +80,7 @@ sudo pinger 8.8.8.8 -q -c 0 | grep "DOWN"
 
 | Flag | Long Flag | Description | Default |
 | :--- | :--- | :--- | :--- |
-| HOST | — | Target IP or hostname | Required |
+| HOST | / | Target IP or hostname | Required |
 | -c | --count | Number of pings (0 = infinite) | 8 |
 | -i | --interval | Delay between pings (ms) | 500 |
 | -t | --timeout | Timeout per ping (ms) | 1000 |
