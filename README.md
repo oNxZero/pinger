@@ -1,37 +1,18 @@
-# 📡 Pinger: Professional Terminal Connectivity Tester
+# Pinger
 
-> **A high-performance, async network diagnostic tool with a modern dashboard interface.**
+Terminal ping tool with latency and jitter statistics, configurable packet sizes, and session logs. Requires Python 3.11+, `ping3`, and `colorama`.
 
-![Python](https://img.shields.io/badge/Python-3.11%2B-blue.svg)
-![License](https://img.shields.io/badge/License-MIT-green.svg)
-![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20Windows-lightgrey)
+## Features
 
-**Pinger** transforms traditional ping output into a structured, real-time diagnostic dashboard. Designed for sysadmins, developers, and power users, it delivers deeper network insight with features like **jitter analysis**, **MTU testing**, and **session logging**—all in a clean, readable interface.
+* Latency minimum, maximum, average, and jitter.
+* Set packet payload size with `-s`.
+* Save timestamped `.txt` logs and session summaries.
+* Disable the dashboard with `--quiet` for use in scripts.
+* Print a session summary on `Ctrl+C`.
+* Display the resolved IP beside the hostname.
+* Fixed-width output table.
 
----
-
-## 🚀 Key Features
-
-* **Advanced Metrics:** Latency tracking (Min/Max/Avg) plus **Network Jitter** for stability analysis.
-* **MTU & Payload Testing:** Detect fragmentation and VPN issues using custom packet sizes (`-s`).
-* **Professional Logging:** Export structured `.txt` logs with timestamps and summaries.
-* **Headless Mode:** Use `--quiet` for raw output—ideal for pipelines and automation.
-* **Graceful Interrupts:** Safe exit with `Ctrl+C`, including full session summary.
-* **Smart DNS Resolution:** Displays resolved IP alongside hostname.
-* **Stable UI Rendering:** Fixed-width table prevents layout shifts.
-
----
-
-## ✨ Why use this?
-
-* **Readable Output:** Clean table format instead of noisy terminal logs.
-* **Automation Friendly:** Designed for scripting and monitoring workflows.
-* **Deeper Diagnostics:** Jitter + MTU testing go beyond standard ping tools.
-* **Flexible Workflow:** Interactive wizard or direct CLI usage.
-
----
-
-## 📦 Installation
+## Installation
 
 Requires **Python 3.11+**.
 
@@ -48,9 +29,7 @@ chmod +x pinger.py
 sudo mv pinger.py /usr/local/bin/pinger
 ```
 
----
-
-## 📖 Usage
+## Usage
 
 ### Interactive Mode
 ```bash
@@ -74,9 +53,7 @@ sudo pinger github.com -c 50 -o results.txt
 sudo pinger 8.8.8.8 -q -c 0 | grep "DOWN"
 ```
 
----
-
-## ⚙️ Command Flags
+## Command Flags
 
 | Flag | Long Flag | Description | Default |
 | :--- | :--- | :--- | :--- |
@@ -88,9 +65,7 @@ sudo pinger 8.8.8.8 -q -c 0 | grep "DOWN"
 | -o | --output | Save results to file | None |
 | -q | --quiet | Disable UI output | False |
 
----
-
-## 📊 Output Explained
+## Output Explained
 
 | Column | Description |
 | :--- | :--- |
@@ -100,7 +75,7 @@ sudo pinger 8.8.8.8 -q -c 0 | grep "DOWN"
 | LATENCY | Round-trip time (ms) |
 | STATUS | UP or DOWN |
 
-### Summary Includes
+### Summary
 
 * Packet statistics (sent/received/loss)
 * Latency metrics (min/avg/max)
@@ -112,23 +87,17 @@ sudo pinger 8.8.8.8 -q -c 0 | grep "DOWN"
 ══════════════════════════════════════════════════════════
         Packets: Sent=10, Recv=10, Lost=0 (0.0%)
   Latency: Avg=1.0ms, Min=0.9ms, Max=1.0ms, Jitter=0.0ms
- 📄 Log saved to: /home/bttw/Downloads/my_network_test.tx
+ Log saved to: results.txt
 ══════════════════════════════════════════════════════════
 ```
 
----
-
-## 📜 Requirements & Permissions
+## Requirements & Permissions
 
 Uses raw ICMP sockets:
 
 * **Linux:** Requires `sudo` or `cap_net_raw`
 * **Windows:** Run in Administrator terminal
 
----
-
-## 🛡️ License
+## License
 
 Distributed under the MIT License. See `LICENSE`.
-
----
